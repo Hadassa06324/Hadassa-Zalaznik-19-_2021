@@ -13,8 +13,6 @@ import { Toast } from 'primereact/toast';
 import { useRef } from 'react';
 import NavigationIcon from '@material-ui/icons/Navigation'
 import { Container } from "react-bootstrap";
-import { Row } from "react-bootstrap";
-import { Col } from "react-bootstrap";
 import ClearIcon from '@material-ui/icons/Clear';
 
 
@@ -49,7 +47,7 @@ export default connect(mapStateToProps)(function Favorites(props) {
           <h1>{item.LocalizedName}</h1>
           <CurrentWeather locationKey={item.Key}></CurrentWeather>
           <span>
-          <Button onClick={() => toWeather(item)} disabled> <NavigationIcon sx={{ mr: 1 }} />To weather</Button>
+          <Button onClick={() => toWeather(item)}> <NavigationIcon sx={{ mr: 1 }} />To weather</Button>
           <Button onClick={() => remove(index)}><ClearIcon sx={{ mr: 1 }} />Remove</Button>
           </span>
         </MyCard>

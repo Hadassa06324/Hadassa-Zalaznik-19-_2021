@@ -50,6 +50,10 @@ export default withRouter(function Navbar(props) {
           <Favorites></Favorites>
         </Route>
 
+        <Route path="/getWeatherByLocation">
+          <Weather></Weather>
+        </Route>
+
         <Route path="/">
           <Weather></Weather>
         </Route>
