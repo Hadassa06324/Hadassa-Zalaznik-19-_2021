@@ -10,7 +10,6 @@ function App() {
       <Provider store={store}>
         <Router>
           <Navbar></Navbar>
-          {/* <Weather></Weather> */}
         </Router>
       </Provider>
     </div>
