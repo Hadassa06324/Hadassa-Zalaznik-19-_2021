@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useEffect, useState } from "react";
 import { Input } from "./input";
 import { connect } from "react-redux"
-import { setSelectedLocation, addFavoriteLocation } from "../redax/actions/locationAction";
+import { setSelectedLocation, addFavoriteLocation } from "../redux/actions/locationAction";
 import getLocation from "../api/Api";
 import { Toast } from 'primereact/toast';
 import '../index.css';

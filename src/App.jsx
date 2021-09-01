@@ -1,6 +1,6 @@
 import './App.css';
 import { Provider } from 'react-redux';
-import store from './redax/stor';
+import store from './redux/stor';
 import Navbar from './components/navbar'
 import { BrowserRouter as Router } from 'react-router-dom';
 

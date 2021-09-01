@@ -6,30 +6,30 @@ const API_HOST_AND_VERSION = 'http://dataservice.accuweather.com/v1/'
 
 
 export default function getLocation(locationName) {
-  const LocationUrl = `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=TgJbkMm6YYYGY6dM4J7lAamAcuBwndIC&q=${locationName}&language=en-us`
+  const LocationUrl = `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=NqreXIG0KHDy6Js2jBW8DAAimUlA2Hfz&q=${locationName}&language=en-us`
 
   return axios.get(LocationUrl).then((response) => {
-      return response.data[0]
-    })
-    .catch((err)=>{alert(err)})
+    return response.data[0]
+  })
+    .catch((err) => { alert(err) })
 }
 
 export function getWeatherForFiveDays(locationKey) {
   debugger
-  const Url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=TgJbkMm6YYYGY6dM4J7lAamAcuBwndIC&language=en-us&details=false&metric=false`
+  const Url = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=NqreXIG0KHDy6Js2jBW8DAAimUlA2Hfz&language=en-us&details=false&metric=false`
 
   return axios.get(Url).then((response) => {
-      return response.data
-    })
+    return response.data
+  })
 }
 
 export function getCurrentWeather(locationKey) {
 
-  const Url = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=TgJbkMm6YYYGY6dM4J7lAamAcuBwndIC&language=en-us&details=false`
+  const Url = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=NqreXIG0KHDy6Js2jBW8DAAimUlA2Hfz&language=en-us&details=false`
 
   return axios.get(Url).then((response) => {
-      return response.data
-    })
+    return response.data
+  })
 }
 
 

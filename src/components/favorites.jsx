@@ -1,13 +1,13 @@
 import { MyCard } from './card'
 import { connect } from "react-redux"
-import { deleteFavoriteLocation, viewfavorite } from "../redax/actions/locationAction";
+import { deleteFavoriteLocation, viewfavorite } from "../redux/actions/locationAction";
 import { CurrentWeather } from './currentWeather';
 import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.css';
 import 'primeflex/primeflex.css';
 import '../index.css';
-import  Button  from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom'
 import { Toast } from 'primereact/toast';
 import { useRef } from 'react';
@@ -39,20 +39,20 @@ export default connect(mapStateToProps)(function Favorites(props) {
   }
 
   return (<>
-  <Container>
-    <Toast ref={toast} />
-    {locations.favoriteLocation.map((item, index) => {
-      return <div key={index} style={{ display: 'inline-block' }}>
-        <MyCard index={index} >
-          <h1>{item.LocalizedName}</h1>
-          <CurrentWeather locationKey={item.Key}></CurrentWeather>
-          <span>
-          <Button onClick={() => toWeather(item)}> <NavigationIcon sx={{ mr: 1 }} />To weather</Button>
-          <Button onClick={() => remove(index)}><ClearIcon sx={{ mr: 1 }} />Remove</Button>
-          </span>
-        </MyCard>
-      </div>
-    })}
+    <Container>
+      <Toast ref={toast} />
+      {locations.favoriteLocation.map((item, index) => {
+        return <div key={index} style={{ display: 'inline-block' }}>
+          <MyCard index={index} >
+            <h1>{item.LocalizedName}</h1>
+            <CurrentWeather locationKey={item.Key}></CurrentWeather>
+            <span>
+              <Button onClick={() => toWeather(item)}> <NavigationIcon sx={{ mr: 1 }} />To weather</Button>
+              <Button onClick={() => remove(index)}><ClearIcon sx={{ mr: 1 }} />Remove</Button>
+            </span>
+          </MyCard>
+        </div>
+      })}
     </Container>
   </>)
 })
