@@ -42,10 +42,10 @@ export default connect(mapStateToProps)(function Location(props) {
   useEffect(() => {
     getLocation(selector).then((response) => {
       if (selector) {
-        location.Version = response.Version
-        location.Key = response.Key
-        location.LocalizedName = response.LocalizedName
-        location.Country = response.Country.LocalizedName
+        location.Version = response[0].Version
+        location.Key = response[0].Key
+        location.LocalizedName = response[0].LocalizedName
+        location.Country = response[0].Country.LocalizedName
         location.IsFavorite = false
         dispatch(setSelectedLocation(location))
       }

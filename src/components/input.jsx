@@ -1,12 +1,29 @@
 import { AutoComplete } from 'primereact/autocomplete';
-import { InputText } from 'primereact/inputtext';
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Toast } from 'primereact/toast';
-
+import getLocation from '../api/Api';
+import { IconButton } from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
 
 export const Input = (props) => {
     const { setSelector } = props
     const toast = useRef(null);
+
+    const [locations, setLocations] = useState([]);
+    const [selectedLocation, setselectedLocation] = useState(null);
+    const [filteredLocations, setFilteredLocations] = useState(null);
+
+    const searchLocation = (event) => {
+        setTimeout(() => {
+            setFilteredLocations(locations);
+        }, 250);
+    }
+
+    useEffect(() => {
+        getLocation(selectedLocation).then((data) => {
+            setLocations(data)
+        })
+    }, [selectedLocation]);
 
     function alphacheck(e) {
         const regex = /[A-Za-z]/;
@@ -30,10 +47,23 @@ export const Input = (props) => {
             <div className="p-field p-col-12 p-md-4">
                 <span className="p-float-label p-input-icon-left">
                     <i className="pi pi-search" />
-                    <InputText onKeyPress={(e) => { alphacheck(e) }} id="lefticon" pattern="[a-zA-Z]*" onBlur={(e) => { setSelector(e.target.value) }} />
+                    <AutoComplete onKeyPress={(e) => { alphacheck(e) }}
+                        value={selectedLocation} suggestions={filteredLocations}
+                        completeMethod={searchLocation} field="LocalizedName"
+                        onChange={(e) => setselectedLocation(e.value)} />
                     <label htmlFor="lefticon">City name</label>
                 </span>
+                <IconButton color="primary" aria-label="add to shopping cart" 
+                        onClick={(e) => { setSelector(selectedLocation.LocalizedName) }}>
+                    <SearchIcon  />
+                </IconButton>
             </div>
         </>
     )
 }
+
+
+
+
+
+

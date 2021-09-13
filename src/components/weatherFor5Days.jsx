@@ -23,9 +23,9 @@ export default function WeatherFor5Days(props) {
       {weatherList.map((item, index) => {
         return <div key={index} style={{ display: 'inline-block' }}>
           <MyCard >
-            {getIconToWeather(item.Day.Icon)}
-            {getIconToWeather(item.Night.Icon)}<br />
-            <label>{`${fToC(item.Temperature.Maximum.Value)}\xB0C`} - {`${fToC(item.Temperature.Minimum.Value)}\xB0C`}</label>
+            {getIconToWeather(item.Night.Icon)}
+            {getIconToWeather(item.Day.Icon)}<br />
+            <label>{`${fToC(item.Temperature.Minimum.Value)}\xB0C`} - {`${fToC(item.Temperature.Maximum.Value)}\xB0C`}</label>
             <label>{item.Day.HasPrecipitation && 'Has Precipitation'}</label><br />
             <label>{moment(item.Date).format('dddd')}</label><br />
           </MyCard></div>
