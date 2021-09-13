@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Hadassa-Zalaznik-19-_2021/static/css/main.aa27f12a.chunk.css",
-    "main.js": "/Hadassa-Zalaznik-19-_2021/static/js/main.d1e64785.chunk.js",
-    "main.js.map": "/Hadassa-Zalaznik-19-_2021/static/js/main.d1e64785.chunk.js.map",
+    "main.js": "/Hadassa-Zalaznik-19-_2021/static/js/main.308a2b08.chunk.js",
+    "main.js.map": "/Hadassa-Zalaznik-19-_2021/static/js/main.308a2b08.chunk.js.map",
     "runtime-main.js": "/Hadassa-Zalaznik-19-_2021/static/js/runtime-main.a7fb1c1a.js",
     "runtime-main.js.map": "/Hadassa-Zalaznik-19-_2021/static/js/runtime-main.a7fb1c1a.js.map",
     "static/css/2.a0b51046.chunk.css": "/Hadassa-Zalaznik-19-_2021/static/css/2.a0b51046.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.a0b51046.chunk.css",
     "static/js/2.7c888ed5.chunk.js",
     "static/css/main.aa27f12a.chunk.css",
-    "static/js/main.d1e64785.chunk.js"
+    "static/js/main.308a2b08.chunk.js"
   ]
 }
