@@ -6,6 +6,7 @@ import { connect } from "react-redux"
 import { Container } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
+import { useState } from "react";
 
 //מספר צריך להשלח עם שתי ספרות ולכן אם הוא קטן מ - 10 יש להוסיף 0 לפניו
 export function getIconToWeather(iconNumber) {

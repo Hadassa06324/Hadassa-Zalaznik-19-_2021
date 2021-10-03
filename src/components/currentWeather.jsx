@@ -12,7 +12,7 @@ export const CurrentWeather = (props) => {
         getCurrentWeather(locationKey).then((response) => {
             setCurrentWeather(response[0])
         })
-    }, []);
+    }, [localizedName]);
 
 
 
