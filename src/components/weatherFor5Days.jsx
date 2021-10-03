@@ -15,7 +15,7 @@ export default function WeatherFor5Days(props) {
     getWeatherForFiveDays(locationKey).then((response) => {
       setWeatherList(response.DailyForecasts)
     })
-  }, []);
+  }, [locationKey]);
 
 
   return (
