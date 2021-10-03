@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { Input } from "./input";
 import { connect } from "react-redux"
 import { setSelectedLocation, addFavoriteLocation } from "../redux/actions/locationAction";
-import getLocation from "../api/Api";
 import { Toast } from 'primereact/toast';
 import '../index.css';
 import StarsIcon from '@material-ui/icons/Stars';
@@ -23,7 +22,7 @@ export default connect(mapStateToProps)(function Location(props) {
 
   const { dispatch, locations } = props
 
-  const [selector, setSelector] = useState(locations.selectedLocation.LocalizedName);
+  const [selector, setSelector] = useState(locations.selectedLocation);
   const toast = useRef(null)
 
   let location = {
@@ -40,19 +39,15 @@ export default connect(mapStateToProps)(function Location(props) {
 
 
   useEffect(() => {
-    getLocation(selector).then((response) => {
       if (selector) {
-        location.Version = response[0].Version
-        location.Key = response[0].Key
-        location.LocalizedName = response[0].LocalizedName
-        location.Country = response[0].Country.LocalizedName
+        location.Version = selector.Version
+        location.Key = selector.Key
+        location.LocalizedName = selector.LocalizedName
         location.IsFavorite = false
         dispatch(setSelectedLocation(location))
       }
-    })
-      .catch(() => {
+      else
         toast.current.show({ severity: 'warn', summary: 'Warn Message', detail: 'Location Not Found', life: 3000 });
-      })
   }, [selector]);
 
 

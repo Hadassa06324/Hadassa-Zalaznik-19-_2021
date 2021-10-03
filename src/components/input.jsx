@@ -54,7 +54,7 @@ export const Input = (props) => {
                     <label htmlFor="lefticon">City name</label>
                 </span>
                 <IconButton color="primary" aria-label="add to shopping cart" 
-                        onClick={(e) => { setSelector(selectedLocation.LocalizedName) }}>
+                        onClick={(e) => { setSelector(selectedLocation) }}>
                     <SearchIcon  />
                 </IconButton>
             </div>
