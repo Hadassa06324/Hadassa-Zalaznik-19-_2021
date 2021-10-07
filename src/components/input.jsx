@@ -26,6 +26,9 @@ export const Input = (props) => {
     }, [selectedLocation]);
 
     function alphacheck(e) {
+        const key = e.keyCode || e.which;
+        if (key == 13)
+            setSelector(selectedLocation)
         const regex = /[A-Za-z]/;
         const chars = e.target.value.split('');
         const char = chars.pop();
@@ -47,15 +50,15 @@ export const Input = (props) => {
             <div className="p-field p-col-12 p-md-4">
                 <span className="p-float-label p-input-icon-left">
                     <i className="pi pi-search" />
-                    <AutoComplete onKeyPress={(e) => { alphacheck(e) }}
+                    <AutoComplete onKeyUp={(e) => { alphacheck(e) }}
                         value={selectedLocation} suggestions={filteredLocations}
                         completeMethod={searchLocation} field="LocalizedName"
                         onChange={(e) => setselectedLocation(e.value)} />
                     <label htmlFor="lefticon">City name</label>
                 </span>
-                <IconButton color="primary" aria-label="add to shopping cart" 
-                        onClick={(e) => { setSelector(selectedLocation) }}>
-                    <SearchIcon  />
+                <IconButton color="primary" aria-label="add to shopping cart"
+                    onClick={(e) => { setSelector(selectedLocation) }}>
+                    <SearchIcon />
                 </IconButton>
             </div>
         </>
